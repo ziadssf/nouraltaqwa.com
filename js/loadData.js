@@ -287,7 +287,7 @@ const API_URL_PRAYER_TIMES = `https://api.aladhan.com/timingsByAddress/${today}?
 today = yyyy + '-' + mm + '-' + dd;
 
 function prayerTime() {
-   fetch(API_URL_PRAYER_TIMES)
+   fetch('dataP.json')
       .then((response) => response.json())
       .then((prayTime) => {
          const prayTimesDate = {
