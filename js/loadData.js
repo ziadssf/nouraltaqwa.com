@@ -290,6 +290,7 @@ function prayerTime() {
    fetch('dataP.json')
       .then((response) => response.json())
       .then((prayTime) => {
+      console.log(prayTime)
          const prayTimesDate = {
             Fajr: prayTime.data.timings.Fajr,
             Dhuhr: prayTime.data.timings.Dhuhr,
