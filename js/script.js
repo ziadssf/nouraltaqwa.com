@@ -144,42 +144,40 @@ setTimeout(() => {
    const sounds = document.querySelectorAll('.elquran .box');
    sounds.forEach(sound => {
       sound.addEventListener('click', () => {
-         setTimeout(() => {
-            for (l = 0; l < document.querySelectorAll('.elquran audio').length; l++) {
-               document.querySelectorAll('.elquran audio')[l].pause();
+         for (l = 0; l < document.querySelectorAll('.elquran audio').length; l++) {
+            document.querySelectorAll('.elquran audio')[l].pause();
+         }
+         for (x = 0; x < document.querySelectorAll('.elquran audio').length; x++) {
+            document.querySelectorAll('.elquran img')[x].style.animationPlayState = 'paused';
+         }
+         for (a = 0; a < document.querySelectorAll('.elquran .box').length; a++) {
+            document.querySelectorAll('.elquran .box')[a].querySelector('i').classList.remove('fa-pause')
+            document.querySelectorAll('.elquran .box')[a].querySelector('i').classList.add('fa-play')
+         }
+         checkSound = !checkSound;
+         if (checkSound) {
+            for (e = 0; e < document.querySelectorAll('.elquran .box').length; e++) {
+               sound.querySelector('i') ? sound.querySelector('i').remove() : null;
             }
-            for (x = 0; x < document.querySelectorAll('.elquran audio').length; x++) {
-               document.querySelectorAll('.elquran img')[x].style.animationPlayState = 'paused';
+            let icon = `<i class="fa ${checkSound ? "fa-pause" : "fa-play"}" aria-hidden="true"></i>`;
+            sound.innerHTML += icon;
+            sound.querySelector('audio').loop = true;
+            sound.querySelector('audio').pause();
+            sound.querySelector('audio').currentTime = 0;
+            sound.querySelector('audio').play();
+            sound.querySelector('img').style.animation = 'rotateSound 0.7s linear infinite';
+         } else {
+            for (e = 0; e < document.querySelectorAll('.elquran .box').length; e++) {
+               sound.querySelector('i') ? sound.querySelector('i').remove() : null;
             }
-            for (a = 0; a < document.querySelectorAll('.elquran .box').length; a++) {
-               document.querySelectorAll('.elquran .box')[a].querySelector('i').classList.remove('fa-pause')
-               document.querySelectorAll('.elquran .box')[a].querySelector('i').classList.add('fa-play')
-            }
-            checkSound = !checkSound;
-            if (checkSound) {
-               for (e = 0; e < document.querySelectorAll('.elquran .box').length; e++) {
-                  sound.querySelector('i') ? sound.querySelector('i').remove() : null;
-               }
-               let icon = `<i class="fa ${checkSound ? "fa-pause" : "fa-play"}" aria-hidden="true"></i>`;
-               sound.innerHTML += icon;
-               sound.querySelector('audio').loop = true;
-               sound.querySelector('audio').pause();
-               sound.querySelector('audio').currentTime = 0;
-               sound.querySelector('audio').play();
-               sound.querySelector('img').style.animation = 'rotateSound 0.7s linear infinite';
-            } else {
-               for (e = 0; e < document.querySelectorAll('.elquran .box').length; e++) {
-                  sound.querySelector('i') ? sound.querySelector('i').remove() : null;
-               }
-               let icon = `<i class="fa ${checkSound ? "fa-pause" : "fa-play"}" aria-hidden="true"></i>`;
-               sound.innerHTML += icon;
-               sound.querySelector('audio').pause();
-               sound.querySelector('img').style.animationPlayState = 'paused';
-            }
-         }, 200);
+            let icon = `<i class="fa ${checkSound ? "fa-pause" : "fa-play"}" aria-hidden="true"></i>`;
+            sound.innerHTML += icon;
+            sound.querySelector('audio').pause();
+            sound.querySelector('img').style.animationPlayState = 'paused';
+         }
       });
    });
-}, 2000);
+}, 0);
 
 
 
