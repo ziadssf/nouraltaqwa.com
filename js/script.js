@@ -176,6 +176,7 @@ setTimeout(() => {
                sound.querySelector('audio').pause();
                sound.querySelector('img').style.animationPlayState = 'paused';
             }
+            console.log(checkSound);
          }, 200);
       });
    });
