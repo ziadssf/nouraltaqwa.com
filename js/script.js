@@ -181,6 +181,7 @@ setTimeout(() => {
             console.log(checkSound);
          }, 200);
       });
+      console.log(checkSound);
    });
 }, 1500);
 
