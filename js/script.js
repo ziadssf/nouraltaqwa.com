@@ -163,8 +163,6 @@ setTimeout(() => {
                let icon = `<i class="fa ${checkSound ? "fa-pause" : "fa-play"}" aria-hidden="true"></i>`;
                sound.innerHTML += icon;
                sound.querySelector('audio').loop = true;
-               sound.querySelector('audio').pause();
-               sound.querySelector('audio').currentTime = 0;
                sound.querySelector('audio').play();
                sound.querySelector('img').style.animation = 'rotateSound 0.7s linear infinite';
             } else {
